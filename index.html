@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Gerador de números</title>
+        <title>Gerador de numeros</title>
     </head>
     <body>
-        <h3>Informe quantos números serão gerados</h3>
+        <h3>Informe a quantidade de numeros</h3>
         <input type="number" id="qtd_numbers" name="qtd_numbers">
         <br><br>
-        <h3>Informe o número mínimo</h3>
+        <h3>Informe o numero minimo</h3>
         <input type="number" id="min_number" name="min_number">
         <br><br>
-        <h3>Informe o número máximo</h3>
+        <h3>Informe o numero maximo</h3>
         <input type="number" id="max_number" name="max_number">
         <br><br><br>
         <button type="button" onclick="sort_numbers()">Gerar</button>
@@ -53,7 +53,7 @@
             document.getElementById("result").innerHTML = final_result;
         }
         else {
-            document.getElementById("result").innerHTML = "Falha ao gerar números";
+            document.getElementById("result").innerHTML = "Falha ao gerar numeros";
         }
         
     }
