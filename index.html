@@ -15,7 +15,8 @@
         <br><br><br>
         <button type="button" onclick="sort_numbers()">Gerar</button>
         <br><br><br>
-        <h1 id="result"></h1>
+        <h1 id="sorted_numbers"></h1>
+        <h1 id="sorted_month"></h1>
     </body>
 </html>
 <script>
@@ -50,12 +51,20 @@
         if (stop == false && numbers.length > 0) {
             numbers.sort(this.compare)
             final_result = numbers.join(" ");
-            document.getElementById("result").innerHTML = final_result;
+            document.getElementById("sorted_numbers").innerHTML = final_result;
+            document.getElementById("sorted_month").innerHTML = sort_month();
+
         }
         else {
-            document.getElementById("result").innerHTML = "Falha ao gerar numeros";
+            document.getElementById("sorted_numbers").innerHTML = "Falha ao gerar numeros";
         }
         
+    }
+
+    function sort_month(){
+        months = ["Janeiro","Fevereiro","Marco","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro",]
+        var index = Math.floor(Math.random() * months.length);
+        return months[index];
     }
 
     function compare(a, b) {
