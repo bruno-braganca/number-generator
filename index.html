@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Gerador de números</title>
+    </head>
+    <body>
+        <h3>Informe quantos números serão gerados</h3>
+        <input type="number" id="qtd_numbers" name="qtd_numbers">
+        <br><br>
+        <h3>Informe o número mínimo</h3>
+        <input type="number" id="min_number" name="min_number">
+        <br><br>
+        <h3>Informe o número máximo</h3>
+        <input type="number" id="max_number" name="max_number">
+        <br><br><br>
+        <button type="button" onclick="sort_numbers()">Gerar</button>
+        <br><br><br>
+        <h1 id="result"></h1>
+    </body>
+</html>
+<script>
+    function sort_numbers() {
+        let qtd = Number(document.getElementById("qtd_numbers").value);
+        let min = Number(document.getElementById("min_number").value);
+        let max = Number(document.getElementById("max_number").value);
+
+        numbers = [];
+        let candidate = 0;
+        let attempt = 0;
+        let stop = false;
+        for(let i = 0 ; i < qtd ; i++) {
+            
+            do {
+                if(attempt > 50){
+                    stop = true;
+                    break;
+                }
+                sorted = Math.floor(Math.random() * (max - min + 1) ) + min;
+                attempt++;
+                
+            } while(numbers.includes(sorted))
+            
+            if (stop) {
+                break;
+            }
+            numbers.push(sorted);
+            
+        };
+
+        if (stop == false && numbers.length > 0) {
+            numbers.sort(this.compare)
+            final_result = numbers.join(" ");
+            document.getElementById("result").innerHTML = final_result;
+        }
+        else {
+            document.getElementById("result").innerHTML = "Falha ao gerar números";
+        }
+        
+    }
+
+    function compare(a, b) {
+        return a - b;
+    }
+</script>
